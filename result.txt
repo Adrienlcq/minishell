@@ -1,0 +1,2 @@
+Je rentre bien dans le if pour first
+Valeur de env->first->key: POWERSHELL_TELEMETRY_OPTOUT
