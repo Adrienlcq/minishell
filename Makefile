@@ -12,7 +12,7 @@ vpath %.c $(foreach dir, $(SRC_DIR), $(dir):)
 
 # library -----------------------------------------------------------
 
-SRC			=	main.c env.c pwd.c error.c env_list_utils.c ft_exec.c parsing_manager.c signals.c token_list_utils.c
+SRC			=	main.c cd.c exit.c echo.c env.c pwd.c error.c env_list_utils.c ft_exec.c parsing_manager.c signals.c token_list_utils.c
 
 INC			=	includes/minishell.h 
 

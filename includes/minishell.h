@@ -84,7 +84,9 @@ void	print_token_debug(t_token *token);
 /* builtins */
 int		ft_env(t_env *env);
 int 	ft_pwd(void);
-/* int		ft_echo(); */
+void	ft_echo(t_token *token);
+void    ft_exit(t_token *token);
+int		ft_cd(t_token *token);
 
 /* execution */
 int		ft_exec(t_token *token, t_env *env);

@@ -363,6 +363,6 @@ int ft_parsing_management(char *line, t_env *env)
 	print_token_debug(&token);
     //erase_double_quotes(line);
     //split_line_in_tokens(line);
-    ft_exec(&token, env);
+    ft_exec(&token, env); // A mettre dans le main normalement
     return (1);
 }
