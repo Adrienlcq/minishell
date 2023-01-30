@@ -6,7 +6,7 @@
 /*   By: adlecler <adlecler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 18:37:26 by adlecler          #+#    #+#             */
-/*   Updated: 2023/01/26 18:50:16 by adlecler         ###   ########.fr       */
+/*   Updated: 2023/01/30 19:40:42 by adlecler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ int ft_exec(t_token *token, t_env *env)
         ft_echo(token);
     else if (ft_strncmp(node->token, "exit", 4) == 0)
         ft_exit(token);
+    else if (ft_strncmp(node->token, "cd", 2) == 0)
+        ft_cd(token);
     return (1);
 }
