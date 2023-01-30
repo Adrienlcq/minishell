@@ -6,7 +6,7 @@
 /*   By: adlecler <adlecler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:22:46 by adlecler          #+#    #+#             */
-/*   Updated: 2023/01/30 19:58:42 by adlecler         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:16:32 by adlecler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,19 @@
     exit(exit_status);
 } */
 
-
 void ft_exit(t_token *token)
 {
     t_token_node *current = token->first->next;
     int exit_status = 0;
     
-    if (current != NULL) {
+    if (current->next == NULL)
+    {
+        printf("exit\n");
+        exit(1);
+    }
+    
+    if (current != NULL)
+    {
         if (!ft_isdigit(current->token))
         {
             printf("exit\nbash: exit: %s: numeric argument required\n", current->token);
@@ -72,7 +78,8 @@ void ft_exit(t_token *token)
         current = current->next;
     }
 
-    if (current != NULL) {
+    if (current != NULL)
+    {
         printf("exit\nbash: exit: too many arguments\n");
         return ;
         //exit(1);
