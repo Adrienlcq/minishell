@@ -6,7 +6,7 @@
 /*   By: adlecler <adlecler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:22:46 by adlecler          #+#    #+#             */
-/*   Updated: 2023/01/30 20:16:32 by adlecler         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:01:59 by adlecler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,47 +14,7 @@
 
 /* PROBLEME AVEC LES TOKEN */
 
-/* void ft_exit(t_token *token)
-{
-    t_token_node *current = token->first->next;
-    t_token_node *temp = current;
-    int arg = 0;
-    
-    while (temp->next != NULL)
-    {
-        arg += 1;
-        printf("arg = %d\n", arg);
-        temp = temp->next;
-    }
-
-    if (token == NULL || token->first == NULL)
-    {
-        printf("exit\n");
-        exit(0);
-    }
-    if (current == NULL || current->token == NULL)
-    {
-        printf("exit\n");
-        exit(0);
-    }
-
-    if (!ft_isdigit(current->token))
-    {
-        printf("exit\nbash: exit: %s: numeric argument required\n", current->token);
-        exit(0);
-    }
-
-    current = current->next;
-    if (current != NULL && current->token != NULL)
-    {
-        printf("exit\nbash: exit: too many arguments\n");
-        return;
-    }
-
-    int exit_status = ft_atoi(token->first->next->token);
-    printf("exit\n");
-    exit(exit_status);
-} */
+/* PROBLEME AVEC EXIT SEUL QUAND ON FAIT UNE AUTRE COMMANDE AVANT (seg fault core dumped) */
 
 void ft_exit(t_token *token)
 {

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+         #
+#    By: adlecler <adlecler@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/09 19:01:04 by tale-fau          #+#    #+#              #
-#    Updated: 2022/02/27 23:12:37 by mqueguin         ###   ########.fr        #
+#    Updated: 2023/02/01 18:20:36 by adlecler         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRCS		=	ft_atoi.c\
 			ft_strchr.c \
 			ft_strrchr.c \
 			ft_strncmp.c \
+			ft_strcmp.c\
 			ft_strncmp_check_len.c \
 			ft_strncpy.c \
 			ft_strlcpy.c \

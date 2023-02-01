@@ -114,6 +114,24 @@ void    clear_env(t_env *env)
     tmp = NULL;
 }
 
+/* supprimer un noeud de la liste env doublement liee */
+void	remove_node(t_env *env, t_env_node *node) //(la liste, le noeud a supprimer)
+{
+	if (!env || !node)
+		return ;
+	if (node->prev)
+		node->prev->next = node->next;
+	if (node->next)
+		node->next->prev = node->prev;
+	if (env->first == node)
+		env->first = node->next;
+	if (env->last == node)
+		env->last = node->prev;
+	free(node->key);
+	free(node->value);
+	free(node);
+}
+
 void    print_env_debug(t_env *env)
 {
     for (t_env_node *node = env->first; node; node = node->next)
