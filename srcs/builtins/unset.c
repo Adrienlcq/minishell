@@ -6,7 +6,7 @@
 /*   By: adlecler <adlecler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 18:45:03 by adlecler          #+#    #+#             */
-/*   Updated: 2023/02/01 18:57:42 by adlecler         ###   ########.fr       */
+/*   Updated: 2023/02/03 15:35:06 by adlecler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,23 +59,33 @@ void ft_unset(t_env *env, t_token *token) //env est une copie de envp qui contie
     node_token = token->first; // token->first = unset
     arg = "empty";
 
+    /* printf("Commande = %s\n",node_token->token); */
     if (!node_token->next) // si pas d'argument apres unset
         return ;
-    else
-        arg = node_token->next->token; // arg devient le nom de la variable d'environnement a unset
-
-    while (node_token->next) // tant que arg apres unset existe
+    node_token = node_token->next; // 1er arg apres unset
+    /* printf("1er ARG (node_token->token) = %s\n",node_token->token); // premier arg
+    printf("node_token->next->token = %s\n", node_token->next->token); // deuxieme arg ? */
+    while (node_token) // tant que arg existe
     {
+        arg = node_token->token; // arg devient le nom de la variable d'environnement a unset
         while (ft_strcmp(arg, node_env->key) != 0) // tant que arg != key
-            node_env = node_env->next; // on passe a la prochaine ligne des variables d'environnement
-        //appel fct remove_node 
-        /* void	remove_node(t_env *env, t_env_node *node) //(la liste, le noeud a supprimer) */
-        remove_node(env, node_env);
-        if (node_token->next->next) // si encore un arg apres unset
+        {
+            if (node_env->next) //si la prochaine ligne des var d'env existe
+                node_env = node_env->next; // on passe a la prochaine ligne des variables d'environnement
+            else
+                break ;
+            if (ft_strcmp(arg, node_env->key) == 0)
+            {
+                remove_node(env, node_env);
+                break ;
+                /* remove_node(t_env *env, t_env_node *node) //(la liste, le noeud a supprimer) */
+            }
+        }
+        if (node_token->next) // si encore un arg apres unset
         {
             node_token = node_token->next; // node_token = prochain arg apres unset
-            node_env = env->first; // on remet node_env a la premiere ligne des varibles d'environnement
-            arg = node_token->next->token; // arg prend la valeur du prochain argument apres unset
+            node_env = env->first; // on remet node_env a la premiere ligne des variables d'environnement
+            //arg = node_token->token; // arg prend la valeur du prochain argument apres unset
         }
         else
             return ;
