@@ -6,13 +6,11 @@
 /*   By: adlecler <adlecler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 18:37:26 by adlecler          #+#    #+#             */
-/*   Updated: 2023/02/01 18:23:44 by adlecler         ###   ########.fr       */
+/*   Updated: 2023/04/24 16:43:12 by adlecler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-
-/* avant c'etait ft_strncmp a la place de ft_strcmp */
 
 int ft_exec(t_token *token, t_env *env)
 {
@@ -32,5 +30,7 @@ int ft_exec(t_token *token, t_env *env)
         ft_cd(token);
     else if (ft_strcmp(node->token, "unset") == 0)
         ft_unset(env, token);
+    else if (ft_strcmp(node->token, "export") == 0)
+        ft_export(env, token);
     return (1);
 }

@@ -50,10 +50,10 @@ typedef struct s_token
 /* functions for handle environments */
 t_env	*copy_envp(char **envp);
 void    env_init_list(t_env *env);
-int		list_pushBack(t_env *env, char *value);
-int		list_pushFront(t_env *env, char *value);
-int		list_popBack(t_env *env);
-int		list_popFront(t_env *env);
+int		list_pushBack(t_env *env, char *value); //ajouter en bas de la liste
+int		list_pushFront(t_env *env, char *value); //ajouter en haut de la liste
+int		list_popBack(t_env *env); //supprimer en bat de la liste
+int		list_popFront(t_env *env); //supprimer en haut de la liste
 void    clear_env(t_env *env);
 void	remove_node(t_env *env, t_env_node *node);
 
@@ -89,6 +89,7 @@ void	ft_echo(t_token *token);
 void    ft_exit(t_token *token);
 int		ft_cd(t_token *token);
 void 	ft_unset(t_env *env, t_token *token);
+void	ft_export(t_env *env, t_token *token);
 
 /* execution */
 int		ft_exec(t_token *token, t_env *env);
