@@ -6,7 +6,7 @@
 /*   By: adlecler <adlecler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:22:46 by adlecler          #+#    #+#             */
-/*   Updated: 2023/02/01 17:01:59 by adlecler         ###   ########.fr       */
+/*   Updated: 2023/04/27 16:58:46 by adlecler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void ft_exit(t_token *token)
     t_token_node *current = token->first->next;
     int exit_status = 0;
     
-    if (current->next == NULL)
+    if (current != token->last)
     {
         printf("exit\n");
         exit(1);
@@ -42,7 +42,6 @@ void ft_exit(t_token *token)
     {
         printf("exit\nbash: exit: too many arguments\n");
         return ;
-        //exit(1);
     }
     printf("exit\n");
     exit(exit_status);
